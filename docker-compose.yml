@@ -1,0 +1,18 @@
+# docker-compose 3.7
+version: '3.7'
+
+services:
+  generator-web:
+    build: ./generator-web
+    image: lukaschzone/generator-web
+    # 需要暴露对外的端口
+    ports:
+      - 4001:1234
+    networks:
+      # 需要从外部访问网关
+      - external_access
+
+networks:
+  # 外部网络
+  external_access:
+
